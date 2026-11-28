@@ -77,73 +77,66 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="sobre" class="about">
+    <!-- BEATS Section -->
+    <section id="musica" class="music-releases">
         <div class="container">
-            <div class="about-grid">
-                <div class="about-content">
-                    <span class="section-tag">Quiénes Somos</span>
-                    <h2 class="section-title">Más de una década<br>creando historias</h2>
-                    <div class="about-text">
-                        <p>Fundado en 2012, Delacroix Producer nace de la pasión por contar historias a través de la imagen. Lo que comenzó como un pequeño estudio de postproducción ha evolucionado hasta convertirse en una productora integral con presencia internacional.</p>
-                        <p>Nuestro enfoque combina la excelencia técnica con la sensibilidad artística. Cada proyecto es una colaboración donde la visión del cliente se encuentra con nuestra experiencia creativa para generar resultados que trascienden lo esperado.</p>
-                    </div>
-                    <div class="about-values">
-                        <div class="value">
-                            <span class="value-icon">01</span>
-                            <div>
-                                <h4>Excelencia Técnica</h4>
-                                <p>Equipo de última generación y flujos de trabajo optimizados</p>
-                            </div>
-                        </div>
-                        <div class="value">
-                            <span class="value-icon">02</span>
-                            <div>
-                                <h4>Visión Artística</h4>
-                                <p>Dirección creativa que eleva cada proyecto</p>
-                            </div>
-                        </div>
-                        <div class="value">
-                            <span class="value-icon">03</span>
-                            <div>
-                                <h4>Compromiso Total</h4>
-                                <p>Entregas a tiempo, dentro del presupuesto, sin excusas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-visual">
-                    <div class="about-image-wrapper">
-                        <div class="about-image" id="aboutImage"></div>
-                        <div class="experience-badge">
-                            <span class="exp-years">12+</span>
-                            <span class="exp-text">Años de Experiencia</span>
-                        </div>
-                        <div class="stats-ring" id="statsRing">
-                            <svg viewBox="0 0 120 120">
-                                <circle class="ring-bg" cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
-                                <circle class="ring-progress" cx="60" cy="60" r="54" fill="none" stroke="var(--accent)" stroke-width="8" stroke-dasharray="339" stroke-dashoffset="339" stroke-linecap="round" style="transform: rotate(-90deg); transform-origin: 60px 60px;"/>
-                            </svg>
-                            <div class="ring-stat">
-                                <span class="ring-number" data-count="98">0</span>
-                                <span class="ring-label">% Satisfacción</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <header class="section-header">
+                <span class="section-tag">Catálogo</span>
+                <h2 class="section-title">BEATS</h2>
+            </header>
+            <div class="music-grid" id="musicGrid">
+                <!-- Music cards rendered by JS -->
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="services">
+    <!-- Hero Audio Player with Playlist -->
+    <section class="hero-audio-section" aria-label="Reproductor de audio principal">
         <div class="container">
-            <header class="section-header">
-                <span class="section-tag">Nuestros Servicios</span>
-                <h2 class="section-title">Especialistas en<br>audio & video digital</h2>
-            </header>
-            <div class="services-grid" id="servicesGrid">
-                <!-- Services will be rendered by JS -->
+            <div class="audio-player" id="audioPlayer">
+                <div class="hero-waveform" id="heroWaveform">
+                    <canvas class="waveform-canvas" id="heroWaveformCanvas"></canvas>
+                    <div class="waveform-progress" id="heroWaveformProgress"></div>
+                    <span class="waveform-time" id="heroWaveformTime">0:00 / 0:00</span>
+                </div>
+                <div class="audio-controls">
+                    <button class="audio-btn play-btn" id="playBtn" aria-label="Reproducir">
+                        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <span class="audio-time" id="audioTime">0:00 / 0:00</span>
+                    <button class="audio-btn volume-btn" id="volumeBtn" aria-label="Volumen">
+                        <svg class="icon-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                        <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.5" style="display:none; width:80px;">
+                    </button>
+                    <label class="audio-upload" aria-label="Subir archivo de audio">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        <input type="file" id="audioUpload" accept="audio/*" hidden>
+                    </label>
+                </div>
+                <div class="audio-info" id="audioInfo">
+                    <span class="audio-title">Selecciona un beat de la lista</span>
+                    <span class="audio-format"></span>
+                </div>
+
+                <!-- Playlist -->
+                <div class="audio-playlist" id="audioPlaylist">
+                    <button class="playlist-toggle" id="playlistToggle" aria-label="Mostrar/ocultar playlist">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5.5 3H21v2H5.5zM5 7H21v2H5zM5.5 11H21v2H5.5zM5 15H21v2H5zM5.5 19H21v2H5.5z"/>
+                        </svg>
+                        <span>Playlist (<span id="playlistCount">0</span>)</span>
+                        <svg class="playlist-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="playlist-content" id="playlistContent">
+                        <div class="playlist-header">
+                            <h4>BEATS Disponibles</h4>
+                            <button class="playlist-clear" id="playlistClear" aria-label="Limpiar playlist">Limpiar</button>
+                        </div>
+                        <ul class="playlist-tracks" id="playlistTracks"></ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -270,66 +263,73 @@
         </div>
     </section>
 
-    <!-- BEATS Section -->
-    <section id="musica" class="music-releases">
+    <!-- About Section -->
+    <section id="sobre" class="about">
         <div class="container">
-            <header class="section-header">
-                <span class="section-tag">Catálogo</span>
-                <h2 class="section-title">BEATS</h2>
-            </header>
-            <div class="music-grid" id="musicGrid">
-                <!-- Music cards rendered by JS -->
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag">Quiénes Somos</span>
+                    <h2 class="section-title">Más de una década<br>creando historias</h2>
+                    <div class="about-text">
+                        <p>Fundado en 2012, Delacroix Producer nace de la pasión por contar historias a través de la imagen. Lo que comenzó como un pequeño estudio de postproducción ha evolucionado hasta convertirse en una productora integral con presencia internacional.</p>
+                        <p>Nuestro enfoque combina la excelencia técnica con la sensibilidad artística. Cada proyecto es una colaboración donde la visión del cliente se encuentra con nuestra experiencia creativa para generar resultados que trascienden lo esperado.</p>
+                    </div>
+                    <div class="about-values">
+                        <div class="value">
+                            <span class="value-icon">01</span>
+                            <div>
+                                <h4>Excelencia Técnica</h4>
+                                <p>Equipo de última generación y flujos de trabajo optimizados</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <span class="value-icon">02</span>
+                            <div>
+                                <h4>Visión Artística</h4>
+                                <p>Dirección creativa que eleva cada proyecto</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <span class="value-icon">03</span>
+                            <div>
+                                <h4>Compromiso Total</h4>
+                                <p>Entregas a tiempo, dentro del presupuesto, sin excusas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image-wrapper">
+                        <div class="about-image" id="aboutImage"></div>
+                        <div class="experience-badge">
+                            <span class="exp-years">12+</span>
+                            <span class="exp-text">Años de Experiencia</span>
+                        </div>
+                        <div class="stats-ring" id="statsRing">
+                            <svg viewBox="0 0 120 120">
+                                <circle class="ring-bg" cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+                                <circle class="ring-progress" cx="60" cy="60" r="54" fill="none" stroke="var(--accent)" stroke-width="8" stroke-dasharray="339" stroke-dashoffset="339" stroke-linecap="round" style="transform: rotate(-90deg); transform-origin: 60px 60px;"/>
+                            </svg>
+                            <div class="ring-stat">
+                                <span class="ring-number" data-count="98">0</span>
+                                <span class="ring-label">% Satisfacción</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Hero Audio Player with Playlist -->
-    <section class="hero-audio-section" aria-label="Reproductor de audio principal">
+    <!-- Services Section -->
+    <section id="servicios" class="services">
         <div class="container">
-            <div class="audio-player" id="audioPlayer">
-                <div class="hero-waveform" id="heroWaveform">
-                    <canvas class="waveform-canvas" id="heroWaveformCanvas"></canvas>
-                    <div class="waveform-progress" id="heroWaveformProgress"></div>
-                    <span class="waveform-time" id="heroWaveformTime">0:00 / 0:00</span>
-                </div>
-                <div class="audio-controls">
-                    <button class="audio-btn play-btn" id="playBtn" aria-label="Reproducir">
-                        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
-                    </button>
-                    <span class="audio-time" id="audioTime">0:00 / 0:00</span>
-                    <button class="audio-btn volume-btn" id="volumeBtn" aria-label="Volumen">
-                        <svg class="icon-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-                        <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.5" style="display:none; width:80px;">
-                    </button>
-                    <label class="audio-upload" aria-label="Subir archivo de audio">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                        <input type="file" id="audioUpload" accept="audio/*" hidden>
-                    </label>
-                </div>
-                <div class="audio-info" id="audioInfo">
-                    <span class="audio-title">Selecciona un beat de la lista</span>
-                    <span class="audio-format"></span>
-                </div>
-
-                <!-- Playlist -->
-                <div class="audio-playlist" id="audioPlaylist">
-                    <button class="playlist-toggle" id="playlistToggle" aria-label="Mostrar/ocultar playlist">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5.5 3H21v2H5.5zM5 7H21v2H5zM5.5 11H21v2H5.5zM5 15H21v2H5zM5.5 19H21v2H5.5z"/>
-                        </svg>
-                        <span>Playlist (<span id="playlistCount">0</span>)</span>
-                        <svg class="playlist-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    </button>
-                    <div class="playlist-content" id="playlistContent">
-                        <div class="playlist-header">
-                            <h4>BEATS Disponibles</h4>
-                            <button class="playlist-clear" id="playlistClear" aria-label="Limpiar playlist">Limpiar</button>
-                        </div>
-                        <ul class="playlist-tracks" id="playlistTracks"></ul>
-                    </div>
-                </div>
+            <header class="section-header">
+                <span class="section-tag">Nuestros Servicios</span>
+                <h2 class="section-title">Especialistas en<br>audio & video digital</h2>
+            </header>
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services will be rendered by JS -->
             </div>
         </div>
     </section>
