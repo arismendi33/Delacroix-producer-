@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DELACROIX PRODUCER - Estudio creativo y producción audiovisual">
+    <title>DELACROIX PRODUCER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cursor glow effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Background canvas for particles -->
+    <canvas id="bgCanvas" class="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-mark">Δ</span>
+                <span class="logo-text">DELACROIX PRODUCER</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#inicio" class="nav-link" data-section="inicio">Inicio</a>
+                <a href="#servicios" class="nav-link" data-section="servicios">Servicios</a>
+                <a href="#artistas" class="nav-link" data-section="artistas">Colaboraciones</a>
+                <a href="#musica" class="nav-link" data-section="musica">BEATS</a>
+                <a href="#sobre" class="nav-link" data-section="sobre">Sobre Nosotros</a>
+                <a href="#contacto" class="nav-link" data-section="contacto">Contacto</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>Estudio Creativo & Producción Audiovisual</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">CREANDO</span>
+                <span class="title-line title-accent">EXPERIENCIAS</span>
+                <span class="title-line">MUSICALES</span>
+            </h1>
+            <p class="hero-subtitle">Delacroix Producer: producción musical, postproducción de video, ideas creativas y marketing audiovisual para redes. Transformamos tu sonido e imagen en contenido que conecta.</p>
+            <div class="hero-actions">
+                <a href="#musica" class="btn btn-primary">
+                    <span>Ver Trabajos</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#contacto" class="btn btn-secondary">
+                    <span>Iniciar Proyecto</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="visual-container">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Nuestros Servicios</span>
+                <h2 class="section-title">Especialistas en<br>audio & video digital</h2>
+            </header>
+            <div class="services-grid" id="servicesGrid">
+                <!-- Services will be rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-tag">Quiénes Somos</span>
+                    <h2 class="section-title">Más de una década<br>creando historias</h2>
+                    <div class="about-text">
+                        <p>Fundado en 2012, Delacroix Producer nace de la pasión por contar historias a través de la imagen. Lo que comenzó como un pequeño estudio de postproducción ha evolucionado hasta convertirse en una productora integral con presencia internacional.</p>
+                        <p>Nuestro enfoque combina la excelencia técnica con la sensibilidad artística. Cada proyecto es una colaboración donde la visión del cliente se encuentra con nuestra experiencia creativa para generar resultados que trascienden lo esperado.</p>
+                    </div>
+                    <div class="about-values">
+                        <div class="value">
+                            <span class="value-icon">01</span>
+                            <div>
+                                <h4>Excelencia Técnica</h4>
+                                <p>Equipo de última generación y flujos de trabajo optimizados</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <span class="value-icon">02</span>
+                            <div>
+                                <h4>Visión Artística</h4>
+                                <p>Dirección creativa que eleva cada proyecto</p>
+                            </div>
+                        </div>
+                        <div class="value">
+                            <span class="value-icon">03</span>
+                            <div>
+                                <h4>Compromiso Total</h4>
+                                <p>Entregas a tiempo, dentro del presupuesto, sin excusas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="about-image-wrapper">
+                        <div class="about-image" id="aboutImage"></div>
+                        <div class="experience-badge">
+                            <span class="exp-years">12+</span>
+                            <span class="exp-text">Años de Experiencia</span>
+                        </div>
+                        <div class="stats-ring" id="statsRing">
+                            <svg viewBox="0 0 120 120">
+                                <circle class="ring-bg" cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+                                <circle class="ring-progress" cx="60" cy="60" r="54" fill="none" stroke="var(--accent)" stroke-width="8" stroke-dasharray="339" stroke-dashoffset="339" stroke-linecap="round" style="transform: rotate(-90deg); transform-origin: 60px 60px;"/>
+                            </svg>
+                            <div class="ring-stat">
+                                <span class="ring-number" data-count="98">0</span>
+                                <span class="ring-label">% Satisfacción</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists / Collaborations Section -->
+    <section id="artistas" class="artists">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Colaboraciones</span>
+                <h2 class="section-title">Artistas con los que<br>he trabajado</h2>
+            </header>
+            <div class="artists-grid">
+                <!-- Square Grid - 4 YouTube Collaborations in one entry with info panel -->
+                <article class="artist-feature collaboration-grid-container reveal">
+                    <div class="collaboration-grid" role="list" aria-label="Colaboraciones musicales">
+                        <!-- Card 1: Colaboración destacada -->
+                        <a href="https://www.youtube.com/watch?v=6AjBso20xmo" target="_blank" rel="noopener" class="collab-card" role="listitem" aria-label="Colaboración destacada - Ver en YouTube">
+                            <div class="collab-card-inner">
+                                <img src="https://img.youtube.com/vi/6AjBso20xmo/maxresdefault.jpg" alt="Colaboración destacada" class="collab-cover" loading="lazy">
+                                <div class="collab-overlay">
+                                    <button class="collab-play" aria-label="Reproducir en YouTube">
+                                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <span class="collab-badge">Ver en YouTube</span>
+                                </div>
+                                <div class="collab-label">
+                                    <span class="collab-title">Colaboración destacada</span>
+                                    <span class="collab-subtitle">Producción Musical</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Card 2 -->
+                        <a href="https://www.youtube.com/watch?v=0A8Oukd5yE0" target="_blank" rel="noopener" class="collab-card" role="listitem" aria-label="Colaboración Artística - Ver en YouTube">
+                            <div class="collab-card-inner">
+                                <img src="https://img.youtube.com/vi/0A8Oukd5yE0/maxresdefault.jpg" alt="Colaboración Artística" class="collab-cover" loading="lazy">
+                                <div class="collab-overlay">
+                                    <button class="collab-play" aria-label="Reproducir en YouTube">
+                                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <span class="collab-badge">Ver en YouTube</span>
+                                </div>
+                                <div class="collab-label">
+                                    <span class="collab-title">Colaboración Artística</span>
+                                    <span class="collab-subtitle">Producción Musical</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Card 3 -->
+                        <a href="https://www.youtube.com/watch?v=XxzqrR9e2Pw" target="_blank" rel="noopener" class="collab-card" role="listitem" aria-label="Colaboración Artística - Ver en YouTube">
+                            <div class="collab-card-inner">
+                                <img src="https://img.youtube.com/vi/XxzqrR9e2Pw/maxresdefault.jpg" alt="Colaboración Artística" class="collab-cover" loading="lazy">
+                                <div class="collab-overlay">
+                                    <button class="collab-play" aria-label="Reproducir en YouTube">
+                                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <span class="collab-badge">Ver en YouTube</span>
+                                </div>
+                                <div class="collab-label">
+                                    <span class="collab-title">Colaboración Artística</span>
+                                    <span class="collab-subtitle">Producción Musical</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Card 4 -->
+                        <a href="https://www.youtube.com/watch?v=-a_zbqZjlwg" target="_blank" rel="noopener" class="collab-card" role="listitem" aria-label="Colaboración Artística - Ver en YouTube">
+                            <div class="collab-card-inner">
+                                <img src="https://img.youtube.com/vi/-a_zbqZjlwg/maxresdefault.jpg" alt="Colaboración Artística" class="collab-cover" loading="lazy">
+                                <div class="collab-overlay">
+                                    <button class="collab-play" aria-label="Reproducir en YouTube">
+                                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <span class="collab-badge">Ver en YouTube</span>
+                                </div>
+                                <div class="collab-label">
+                                    <span class="collab-title">Colaboración Artística</span>
+                                    <span class="collab-subtitle">Producción Musical</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="artist-info">
+                        <span class="artist-category">Producción Musical</span>
+                        <h3 class="artist-title">Colaboraciones con Artistas</h3>
+                        <p class="artist-description">Una selección de proyectos musicales donde he trabajado codo a codo con artistas para dar vida a su sonido. Desde la composición y arreglos hasta la mezcla y mastering final, cada colaboración es única y busca elevar la visión artística del músico.</p>
+                        <div class="artist-meta">
+                            <span class="artist-role">Composición · Arreglos · Grabación · Mezcla · Mastering</span>
+                            <a href="https://www.youtube.com/channel/UC" target="_blank" rel="noopener" class="artist-link">
+                                Ver más en YouTube
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Streamable Video - Full Width Hero -->
+                <article class="artist-feature artist-feature--full reveal" style="transition-delay: 200ms;">
+                    <div class="artist-video-full">
+                        <video
+                            class="hero-video"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            poster="assets/video-poster.jpg"
+                            title="Proyecto visual destacado">
+                            <source src="assets/hero-video.mp4" type="video/mp4">
+                            <source src="assets/hero-video.webm" type="video/webm">
+                        </video>
+                    </div>
+                    <div class="artist-info">
+                        <span class="artist-category">Producción Audiovisual</span>
+                        <h3 class="artist-title">Personaje Continuo para Videos</h3>
+                        <p class="artist-description">Creación de personaje consistente mediante inteligencia artificial para mantener la misma identidad visual across múltiples piezas audiovisuales, series y campañas.</p>
+                        <span class="artist-role">Generado por IA / Character Design / Video Production</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BEATS Section -->
+    <section id="musica" class="music-releases">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Catálogo</span>
+                <h2 class="section-title">BEATS</h2>
+            </header>
+            <div class="music-grid" id="musicGrid">
+                <!-- Music cards rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Audio Player with Playlist -->
+    <section class="hero-audio-section" aria-label="Reproductor de audio principal">
+        <div class="container">
+            <div class="audio-player" id="audioPlayer">
+                <div class="hero-waveform" id="heroWaveform">
+                    <canvas class="waveform-canvas" id="heroWaveformCanvas"></canvas>
+                    <div class="waveform-progress" id="heroWaveformProgress"></div>
+                    <span class="waveform-time" id="heroWaveformTime">0:00 / 0:00</span>
+                </div>
+                <div class="audio-controls">
+                    <button class="audio-btn play-btn" id="playBtn" aria-label="Reproducir">
+                        <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                        <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                    </button>
+                    <span class="audio-time" id="audioTime">0:00 / 0:00</span>
+                    <button class="audio-btn volume-btn" id="volumeBtn" aria-label="Volumen">
+                        <svg class="icon-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                        <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.5" style="display:none; width:80px;">
+                    </button>
+                    <label class="audio-upload" aria-label="Subir archivo de audio">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        <input type="file" id="audioUpload" accept="audio/*" hidden>
+                    </label>
+                </div>
+                <div class="audio-info" id="audioInfo">
+                    <span class="audio-title">Selecciona un beat de la lista</span>
+                    <span class="audio-format"></span>
+                </div>
+
+                <!-- Playlist -->
+                <div class="audio-playlist" id="audioPlaylist">
+                    <button class="playlist-toggle" id="playlistToggle" aria-label="Mostrar/ocultar playlist">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5.5 3H21v2H5.5zM5 7H21v2H5zM5.5 11H21v2H5.5zM5 15H21v2H5zM5.5 19H21v2H5.5z"/>
+                        </svg>
+                        <span>Playlist (<span id="playlistCount">0</span>)</span>
+                        <svg class="playlist-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="playlist-content" id="playlistContent">
+                        <div class="playlist-header">
+                            <h4>BEATS Disponibles</h4>
+                            <button class="playlist-clear" id="playlistClear" aria-label="Limpiar playlist">Limpiar</button>
+                        </div>
+                        <ul class="playlist-tracks" id="playlistTracks"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Contacto</span>
+                    <h2 class="section-title">Iniciemos tu<br>próximo proyecto</h2>
+                    <p class="contact-desc">¿Tienes una idea en mente? Cuéntanos sobre tu proyecto y te responderemos en menos de 24 horas con una propuesta personalizada.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Estudio SP — São Paulo</h4>
+                                <p>São Paulo, Brasil</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Estudio — Ciudad Guayana</h4>
+                                <p>Ciudad Guayana, Venezuela</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hola@delacroixproducer.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Teléfono (Brasil)</h4>
+                                <p>+55 11 93359 9356</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Vimeo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 12a6 6 0 0 0-6-6H6a6 6 0 0 0 0 12h6a6 6 0 0 0 6-6z"/><path d="M15 9v6"/></svg></a>
+                        <a href="#" class="social-link" aria-label="Behance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                            <span class="form-line"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            <span class="form-line"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa">Empresa / Proyecto</label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa o proyecto">
+                        <span class="form-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Proyecto *</label>
+                        <select id="tipo" name="tipo" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="comercial">Spot Publicitario / Comercial</option>
+                            <option value="cine">Cine / Series TV</option>
+                            <option value="motion">Motion Graphics / Animación</option>
+                            <option value="branding">Branding / Identidad Visual</option>
+                            <option value="postproduccion">Postproducción / VFX</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <span class="form-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="presupuesto">Presupuesto Estimado</label>
+                        <select id="presupuesto" name="presupuesto">
+                            <option value="">Selecciona un rango</option>
+                            <option value="5k-15k">5.000€ - 15.000€</option>
+                            <option value="15k-30k">15.000€ - 30.000€</option>
+                            <option value="30k-50k">30.000€ - 50.000€</option>
+                            <option value="50k-100k">50.000€ - 100.000€</option>
+                            <option value="100k+">100.000€+</option>
+                            <option value="consultar">Prefiero consultar</option>
+                        </select>
+                        <span class="form-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos sobre tu proyecto, objetivos, timeline y cualquier detalle relevante..."></textarea>
+                        <span class="form-line"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span class="btn-text">Enviar Proyecto</span>
+                        <span class="btn-loading" style="display:none;">
+                            <svg class="spinner" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="30 60" stroke-linecap="round"/></svg>
+                            Enviando...
+                        </span>
+                    </button>
+                    <p class="form-note">Al enviar, aceptas nuestra <a href="#">Política de Privacidad</a> y <a href="#">Términos de Servicio</a>.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-mark">Δ</span>
+                        <span class="logo-text">DELACROIX PRODUCER</span>
+                    </a>
+                    <p>Transformamos ideas en narrativas visuales que inspiran, conectan y perduran.</p>
+                    <div class="footer-badges">
+                        <span class="badge">São Paulo</span>
+                        <span class="badge">Ciudad Guayana</span>
+                        <span class="badge">Remoto Global</span>
+                    </div>
+                </div>
+                <nav class="footer-nav">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Producción Musical</a></li>
+                        <li><a href="#servicios">Postproducción de Video</a></li>
+                        <li><a href="#servicios">Ideas Creativas</a></li>
+                        <li><a href="#servicios">Marketing Audiovisual</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre Nosotros</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#">Blog & Insights</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="#">Prensa</a></li>
+                    </ul>
+                </nav>
+                <nav class="footer-nav">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Cookies</a></li>
+                        <li><a href="#">Aviso Legal</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DELACROIX PRODUCER. Todos los derechos reservados.</p>
+                <p class="footer-credit">Diseñado y desarrollado con pasión por el equipo de Delacroix</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for project details -->
+    <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Cerrar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
